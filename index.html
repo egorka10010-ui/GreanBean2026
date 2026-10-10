@@ -1,0 +1,109 @@
+`<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green Bean — кофейня со свежей обжаркой</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#006241;--green-d:#1e3932;--cream:#f2f0eb;--paper:#fbfaf7;--ink:#1e1e1e;--muted:#5b6560;--line:#dcd8ce}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:120px 0}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:24px;color:var(--green-d)}
+h3{font-size:20px}
+p{margin:0 0 16px;max-width:60ch;color:var(--muted)}
+.btn{display:inline-block;background:var(--green);color:#fff;border:0;border-radius:999px;padding:16px 36px;font:600 16px Inter,sans-serif;text-decoration:none;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--green-d)}
+.btn.light{background:#fff;color:var(--green-d)}
+.btn.light:hover{background:var(--cream)}
+header{position:sticky;top:0;z-index:10;background:rgba(242,240,235,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;font-size:20px;color:var(--green);text-decoration:none}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-size:15px;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--green)}
+.hero{background:var(--green-d);color:#fff;padding:0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;min-height:min(86vh,760px);padding-top:80px;padding-bottom:80px}
+.hero h1{font-size:clamp(52px,8vw,104px);letter-spacing:-.04em;margin-bottom:24px}
+.hero p{color:#cfe0d8;font-size:clamp(20px,2.4vw,26px);margin-bottom:40px}
+.photo{border-radius:28px;overflow:hidden;position:relative;background:var(--green)}
+.photo svg{display:block;width:100%;height:100%}
+.hero .photo{aspect-ratio:4/5}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about .photo{aspect-ratio:1/1}
+.menu{background:var(--paper)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:56px}
+.cols h3{padding-bottom:16px;border-bottom:2px solid var(--green);margin-bottom:8px;color:var(--green)}
+.item{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.item span:first-child{font-weight:500}
+.item span:last-child{color:var(--green-d);font-weight:600;white-space:nowrap}
+.how .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:56px}
+.how h3{margin-bottom:12px;color:var(--green)}
+.how p{font-size:16px}
+.gallery{padding-top:0}
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g .photo{aspect-ratio:1/1;border-radius:20px}
+.g .photo.wide{grid-column:span 2;aspect-ratio:2/1}
+.reviews{background:var(--green-d);color:#fff}
+.reviews h2{color:#fff}
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px}
+.rv blockquote{margin:0;font-size:19px;line-height:1.55;color:#e8f0ec}
+.rv cite{display:block;margin-top:20px;font-style:normal;font-weight:600;color:#fff;font-size:16px}
+.find .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:stretch}
+.find dl{margin:32px 0 0}
+.find dt{font-weight:600;color:var(--green-d);margin-top:20px}
+.find dd{margin:4px 0 0;color:var(--muted)}
+.map{border-radius:28px;background:#e4e2da;min-height:380px;display:grid;place-items:center;color:var(--muted);font-weight:500;overflow:hidden}
+.order{background:var(--paper)}
+.order .wrap{max-width:640px}
+form{display:grid;gap:20px;margin-top:32px}
+label{display:grid;gap:8px;font-weight:500;font-size:15px}
+input,textarea{font:400 17px Inter,sans-serif;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);width:100%}
+input:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+textarea{min-height:120px;resize:vertical}
+form .btn{justify-self:start}
+.ok{display:none;background:#e3efe9;color:var(--green-d);padding:20px 24px;border-radius:14px;font-weight:500}
+footer{background:var(--green-d);color:#cfe0d8;padding:72px 0 40px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+footer .logo{color:#fff}
+footer h4{margin:0 0 12px;color:#fff;font-size:16px;font-weight:600}
+footer a{display:block;text-decoration:none;margin-bottom:8px}
+footer a:hover{color:#fff}
+footer small{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:24px;color:#9fb8ad}
+@media (max-width:860px){
+section{padding:80px 0}
+.nav ul{display:none}
+.hero .wrap,.about .wrap,.find .wrap{grid-template-columns:1fr;gap:40px}
+.hero .wrap{padding-top:56px;padding-bottom:56px;min-height:0}
+.hero .photo{aspect-ratio:1/1}
+.cols,.how .grid,.rv{grid-template-columns:1fr;gap:40px}
+.g{grid-template-columns:1fr 1fr}
+footer .wrap{grid-template-columns:1fr;gap:32px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="logo" href="#top">Green Bean</a><ul><li><a href="#about">О нас</a></li><li><a href="#menu">Меню</a></li><li><a href="#how">Как готовим</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#find">Как найти</a></li></ul><a class="btn" href="#order" style="padding:10px 24px;font-size:15px">Заказать</a></div></header>
+<main id="top">
+<section class="hero"><div class="wrap"><div><h1>Green Bean</h1><p>Свежая обжарка каждый день</p><a class="btn light" href="#order">Заказать</a></div><div class="photo" role="img" aria-label="Чашка кофе"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice"><rect width="400" height="500" fill="#006241"/><circle cx="200" cy="250" r="150" fill="#0b7a54"/><ellipse cx="200" cy="330" rx="120" ry="18" fill="#00513a"/><path d="M110 210h180v70a90 90 0 0 1-180 0z" fill="#f2f0eb"/><path d="M290 225h22a32 32 0 0 1 0 64h-26" fill="none" stroke="#f2f0eb" stroke-width="14"/><ellipse cx="200" cy="210" rx="90" ry="14" fill="#6b4226"/><path d="M175 165c-12-20 12-30 0-52M215 165c-12-20 12-30 0-52" fill="none" stroke="#cfe0d8" stroke-width="5" stroke-linecap="round" opacity=".7"/></svg></div></div></section>
+<section class="about" id="about"><div class="wrap"><div class="photo" role="img" aria-label="Зёрна кофе"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#d9d4c5"/><g fill="#6b4226"><ellipse cx="140" cy="170" rx="58" ry="80" transform="rotate(-25 140 170)"/><ellipse cx="260" cy="230" rx="58" ry="80" transform="rotate(30 260 230)"/></g><g fill="none" stroke="#d9d4c5" stroke-width="6" stroke-linecap="round"><path d="M110 105c40 50 20 100 60 150"/><path d="M285 160c-30 60-5 100-45 150"/></g></svg></div><div><h2>Маленькая кофейня с собственной обжаркой</h2><p>Green Bean начался с одной небольшой обжарочной машины и желания пить кофе, который по-настоящему вкусный. Сегодня это уютная кофейня, где мы сами обжариваем зёрна и сами готовим каждую чашку.</p><p>Мы любим кофе и не торопимся: хорошая чашка требует внимания. Заходите на эспрессо по дороге на работу или задержитесь с книгой на весь вечер.</p></div></div></section>
+<section class="menu" id="menu"><div class="wrap"><h2>Меню</h2><div class="cols"><div><h3>Кофе</h3><div class="item"><span>Эспрессо</span><span>150 ₽</span></div><div class="item"><span>Латте</span><span>260 ₽</span></div><div class="item"><span>Капучино</span><span>240 ₽</span></div><div class="item"><span>Раф</span><span>290 ₽</span></div></div><div><h3>Десерты</h3><div class="item"><span>Круассан</span><span>190 ₽</span></div><div class="item"><span>Чизкейк</span><span>290 ₽</span></div><div class="item"><span>Маффин</span><span>170 ₽</span></div></div><div><h3>Сезонные напитки</h3><div class="item"><span>Тыквенный латте</span><span>320 ₽</span></div><div class="item"><span>Айс-матча</span><span>340 ₽</span></div></div></div></div></section>
+<section class="how" id="how"><div class="wrap"><h2>Как мы готовим</h2><div class="grid"><div><h3>Зёрна</h3><p>Выбираем арабику небольшими партиями у проверенных ферм. Смотрим на происхождение, высоту произрастания и способ обработки.</p></div><div><h3>Обжарка</h3><p>Обжариваем сами, каждый день и понемногу. Поэтому в вашей чашке всегда свежий кофе, а не зёрна, пролежавшие на складе.</p></div><div><h3>Бариста</h3><p>Наши бариста знают каждый сорт и настраивают помол под него. Они объяснят разницу между напитками и подскажут, что выбрать.</p></div></div></div></section>
+<section class="gallery" aria-label="Галерея"><div class="wrap"><div class="g"><div class="photo wide" role="img" aria-label="Стойка бариста"><svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice"><rect width="800" height="400" fill="#006241"/><rect x="0" y="290" width="800" height="110" fill="#1e3932"/><rect x="120" y="150" width="140" height="140" rx="10" fill="#f2f0eb"/><rect x="300" y="190" width="90" height="100" rx="8" fill="#d9d4c5"/><circle cx="560" cy="220" r="70" fill="#0b7a54"/></svg></div><div class="photo"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#d9d4c5"/><circle cx="200" cy="200" r="120" fill="#f2f0eb"/><circle cx="200" cy="200" r="90" fill="#6b4226"/><path d="M200 140c35 25 35 65 0 95-35-30-35-70 0-95z" fill="#f2f0eb"/></svg></div><div class="photo"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#1e3932"/><path d="M80 250c20-90 220-90 240 0-60-30-180-30-240 0z" fill="#d89b4a"/><path d="M130 200l20 50M200 185v65M270 200l-20 50" stroke="#b97a2c" stroke-width="6"/></svg></div><div class="photo"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#e4e2da"/><rect x="90" y="60" width="220" height="280" fill="#fbfaf7" stroke="#006241" stroke-width="10"/><path d="M200 60v280M90 200h220" stroke="#006241" stroke-width="6"/></svg></div><div class="photo"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#006241"/><g fill="#6b4226"><ellipse cx="120" cy="150" rx="30" ry="42"/><ellipse cx="210" cy="220" rx="30" ry="42"/><ellipse cx="290" cy="140" rx="30" ry="42"/><ellipse cx="150" cy="290" rx="30" ry="42"/></g></svg></div><div class="photo"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#f2f0eb"/><path d="M130 110h140l-16 220h-108z" fill="#8fb996"/><rect x="120" y="100" width="160" height="16" rx="8" fill="#006241"/><path d="M230 40l-20 130" stroke="#1e3932" stroke-width="8" stroke-linecap="round"/></svg></div></div></div></section>
+<section class="reviews" id="reviews"><div class="wrap"><h2>Отзывы</h2><div class="rv"><blockquote>Лучший капучино в районе. Берём зёрна с собой каждую неделю, дома получается почти так же.<cite>Анна К.</cite></blockquote><blockquote>Очень спокойное место. Можно работать с ноутбуком, никто не торопит, а чизкейк просто великолепный.<cite>Дмитрий Р.</cite></blockquote><blockquote>Бариста сам предложил попробовать раф и не ошибся. Теперь заходим сюда по выходным всей семьёй.<cite>Мария С.</cite></blockquote></div></div></section>
+<section class="find" id="find"><div class="wrap"><div><h2>Как нас найти</h2><dl><dt>Адрес</dt><dd>г. Москва, ул. Примерная, 12</dd><dt>Часы работы</dt><dd>Пн–Пт: 7:30–21:00<br>Сб–Вс: 9:00–22:00</dd><dt>Телефон</dt><dd><a href="tel:+74950000000">+7 (495) 000-00-00</a></dd></dl></div><div class="map" role="img" aria-label="Заглушка карты">Здесь будет карта</div></div></section>
+<section class="order" id="order"><div class="wrap"><h2>Заказать</h2><p>Оставьте заявку, и мы позвоним, чтобы подтвердить заказ.</p><form id="f" novalidate><label>Имя<input name="name" type="text" required></label><label>Телефон<input name="phone" type="tel" placeholder="+7" required></label><label>Что заказать<textarea name="items" placeholder="Например: 2 латте и 1 чизкейк" required></textarea></label><button class="btn" type="submit">Отправить заказ</button><div class="ok" id="ok" role="status">Спасибо! Заказ принят, скоро мы вам позвоним.</div></form></div></section>
+</main>
+<footer><div class="wrap"><div><a class="logo" href="#top">Green Bean</a><p style="color:#9fb8ad;margin-top:12px">Свежая обжарка каждый день.</p></div><div><h4>Соцсети</h4><a href="#">Instagram</a><a href="#">Telegram</a><a href="#">VK</a></div><div><h4>Контакты</h4><a href="tel:+74950000000">+7 (495) 000-00-00</a><a href="mailto:hello@greenbean.example">hello@greenbean.example</a></div><small>© 2026 Green Bean. Все права защищены.</small></div></footer>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var f=e.target,ok=true;['name','phone','items'].forEach(function(n){var el=f.elements[n];if(!el.value.trim()){el.style.borderColor='#b3261e';ok=false}else{el.style.borderColor=''}});if(!ok)return;f.querySelector('button').style.display='none';document.getElementById('ok').style.display='block';});
+</script>
+</body>
+</html>
